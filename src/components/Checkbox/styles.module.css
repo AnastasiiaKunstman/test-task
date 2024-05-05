@@ -1,0 +1,39 @@
+.checkbox_wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox_wrapper .terms_label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.checkbox_wrapper .terms_label .label_text {
+    margin-left: 10px;
+}
+
+.checkbox_wrapper .checkbox_svg {
+    width: 30px;
+    height: 30px;
+}
+
+.checkbox_wrapper .checkbox_box {
+    fill: #e6efe9;
+    stroke: #2C992C;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    transition: stroke-dashoffset 0.6s ease-in;
+}
+
+.checkbox_wrapper .checkbox_tick {
+    stroke: #2C992C;
+    stroke-dasharray: 172;
+    stroke-dashoffset: 172;
+    transition: stroke-dashoffset 0.6s ease-in;
+}
+
+.checkbox_wrapper input[type="checkbox"]:checked+.terms_label .checkbox_box,
+.checkbox_wrapper input[type="checkbox"]:checked+.terms_label .checkbox_tick {
+    stroke-dashoffset: 0;
+}
