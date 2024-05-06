@@ -74,3 +74,11 @@
     height: 500px;
     margin: auto;
 }
+
+@media (max-width: 780px) {
+    .activeBlock {
+        padding: 0;
+        gap: 3vw;
+        height: max-content;
+    }
+}

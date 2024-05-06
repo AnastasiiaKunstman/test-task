@@ -6,7 +6,6 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin: 10px 0;
 }
 
 .checkbox_wrapper .terms_label .label_text {
@@ -14,8 +13,9 @@
 }
 
 .checkbox_wrapper .checkbox_svg {
-    width: 30px;
-    height: 30px;
+    max-width: 20px;
+    height: 20px;
+    border: 1px solid;
 }
 
 .checkbox_wrapper .checkbox_box {

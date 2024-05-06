@@ -9,7 +9,7 @@
 
 .buttons {
     padding: 20px 20px 0 0;
-    width: 35%;
+    width: 40%;
     border-right: 1px solid #ccc;
 }
 
@@ -48,17 +48,6 @@
 
 .buttons .button.active .edit_icons {
     display: block;
-}
-
-.edit_icons {
-    display: none;
-    width: 5%;
-    transition: transform 0.2s ease;
-}
-
-.button:hover .edit_icons {
-    display: block;
-    transform: scale(1.2);
 }
 
 .wrapper {
@@ -132,6 +121,7 @@
         width: 100%;
         border-right: none;
         border-bottom: 1px solid #ccc;
+        padding: 15px 0 0;
     }
 
 }
