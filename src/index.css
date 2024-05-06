@@ -36,8 +36,16 @@ body {
 main {
   flex-grow: 1;
   display: flex;
-  padding: 5vw 0;
+  padding: 2vw 0;
   width: 100%;
+}
+
+ li {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  margin-bottom: 1vw;
+  text-decoration: none;
 }
 
 @media (max-width: 480px) {

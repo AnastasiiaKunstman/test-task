@@ -10,13 +10,20 @@ class Items {
 
     constructor() {
         makeAutoObservable(this);
+        this.loadItemsFromLocalStorage();
+    }
 
+    private loadItemsFromLocalStorage() {
         const storedItems = localStorage.getItem('items');
         if (storedItems) {
             this.itemArray = JSON.parse(storedItems);
         } else {
             this.initializeDefaultItems();
         }
+    }
+
+    private saveItemsToLocalStorage() {
+        localStorage.setItem('items', JSON.stringify(this.itemArray));
     }
 
     initializeDefaultItems() {
@@ -51,12 +58,12 @@ class Items {
             },
         ];
 
-        localStorage.setItem('items', JSON.stringify(this.itemArray));
+        this.saveItemsToLocalStorage();
     }
 
     completeToggler(id: string) {
         this.itemArray = recursionCompleteToggler(id, this.itemArray);
-        this.saveToLocalStorage();
+        this.saveItemsToLocalStorage();
     }
 
     chooseItem(id: string) {
@@ -67,53 +74,41 @@ class Items {
         const itemToUpdate = this.itemArray.find(item => item.id === id);
         if (itemToUpdate) {
             itemToUpdate.title = newTitle;
-            this.saveToLocalStorage();
+            this.saveItemsToLocalStorage();
         }
     }
 
-    getFlatTasks(): TaskType[] {
-        const flatTasks: TaskType[] = [];
-
-        const flatten = (tasks: TaskType[]) => {
-            tasks.forEach(task => {
-                flatTasks.push(task);
-                flatten(task.subTasks);
-            });
-        };
-
-        flatten(this.itemArray);
-
-        return flatTasks;
-    }
-
-    addSubtask = (parentId: string, title: string, text: string) => {
-        console.log("Adding subtask with parentId:", parentId, "title:", title, "text:", text);
-
-        // Создаем новую подзадачу
-        const subTask: TaskType = {
-            id: uuidv4(),
-            title: title,
-            text: text,
-            isChecked: false,
-            subTasks: [],
-        };
-
-        // Находим родительскую задачу в массиве
+    addSubtask(parentId: string, subTask: TaskType) {
         const parentTask = this.itemArray.find(task => task.id === parentId);
-
-        // Если родительская задача найдена
         if (parentTask) {
-            // Добавляем новую подзадачу в родительскую задачу
             parentTask.subTasks.push(subTask);
-            this.saveToLocalStorage();
+            this.saveItemsToLocalStorage();
         } else {
             console.error(`Parent task with id ${parentId} not found.`);
         }
     }
 
-    private saveToLocalStorage() {
-        localStorage.setItem('items', JSON.stringify(this.itemArray));
+    updateSubTasks = (id: string, subTasks: TaskType[]) => {
+        const task = this.itemArray.find(task => task.id === id);
+        if (task) {
+            task.subTasks = subTasks;
+            this.saveItemsToLocalStorage();
+        } else {
+            console.error(`Task with id ${id} not found.`);
+        }
     }
+
+    removeSubtask = (parentId: string, subtaskId: string) => {
+        const parentTask = this.itemArray.find(task => task.id === parentId);
+
+        if (parentTask) {
+            parentTask.subTasks = parentTask.subTasks.filter(subTask => subTask.id !== subtaskId);
+            this.saveItemsToLocalStorage();
+        } else {
+            console.error(`Parent task with id ${parentId} not found.`);
+        }
+    }
+
 }
 
 const items = new Items();

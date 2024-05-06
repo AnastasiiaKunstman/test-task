@@ -31,20 +31,9 @@
     gap: 10px;
 }
 
-.item_button {
-    width: 20px;
-    height: 20px;
-    background-image: url('../../assets/add.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.item_button:hover {
-    opacity: .7;
+.subTasks_title {
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .save_button {

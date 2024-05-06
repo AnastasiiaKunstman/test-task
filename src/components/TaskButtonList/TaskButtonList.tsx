@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { observer } from 'mobx-react';
-import Checkbox from '../Checkbox/Checkbox';
+import Checkbox from '../UI/Checkbox/Checkbox';
 import edit from '../../assets/edit.svg';
 import chevronIcon from '../../assets/chevron.svg';
 import styles from './styles.module.css';
@@ -23,6 +23,14 @@ const TaskButtonList: FC<TaskButtonListProps> = observer(({ items, activeBlock, 
         }));
     };
 
+    const handleEditClick = (id: string) => {
+        const activeItem = items.find(item => item.id === id);
+        if (activeItem && activeItem.subTasks.length > 0) {
+            toggleTaskExpansion(id);
+        }
+        toggleMenuBlock(id);
+    };
+
     return (
         <>
             {items.map((item) => (
@@ -35,7 +43,8 @@ const TaskButtonList: FC<TaskButtonListProps> = observer(({ items, activeBlock, 
                             <img
                                 src={chevronIcon}
                                 alt='toggle subtasks'
-                                className={`${styles.icons} ${expandedTasks[item.id] ? styles.rotated : ''}`} onClick={() => toggleTaskExpansion(item.id)}
+                                className={`${styles.icons} ${expandedTasks[item.id] ? styles.rotated : ''} ${item.subTasks.length === 0 ? styles.inactiveIcon : ''}`}
+                                onClick={() => toggleTaskExpansion(item.id)}
                             />
                             <Checkbox
                                 id={item.id}
@@ -48,24 +57,18 @@ const TaskButtonList: FC<TaskButtonListProps> = observer(({ items, activeBlock, 
                             src={edit}
                             alt='edit task'
                             className={styles.edit_icons}
-                            onClick={() => toggleMenuBlock(item.id)}
+                            onClick={() => handleEditClick(item.id)}
                         />
-
                     </button>
                     {expandedTasks[item.id] && item.subTasks.map((subTask) => (
                         <div key={subTask.id} className={styles.item_box}>
-                            <Checkbox
-                                id={subTask.id}
-                                checked={subTask.isChecked}
-                                onChange={() => handleChange(subTask.id)}
-                            />
                             {subTask.title}
                         </div>
                     ))}
                 </div>
             ))}
         </>
-    );
+    )
 });
 
 export default TaskButtonList;

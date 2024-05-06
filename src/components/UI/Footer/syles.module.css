@@ -1,0 +1,15 @@
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 30px;
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+
+.footer_text {
+    font-size: 14px;
+    color: #222222;
+    opacity: 0.5;
+}
