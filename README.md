@@ -1,12 +1,7 @@
 # Tasks List
-Тестовое задание
+тестовое задание
 
-## [Задание](https://docs.google.com/document/d/18lUZ7ZvLRLsOXwCWCZB0DmFZ4Jb6OpwP/edit?usp=sharing&ouid=111233543190189046642&rtpof=true&sd=true):
-
-
-## Доделать
-- Связывание элементов
-- Инвертирование элементов
+## [Задание](https://docs.google.com/document/d/18lUZ7ZvLRLsOXwCWCZB0DmFZ4Jb6OpwP/edit?usp=sharing&ouid=111233543190189046642&rtpof=true&sd=true)
 
 ## Инструкция по сборке
 

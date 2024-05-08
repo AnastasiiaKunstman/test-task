@@ -1,0 +1,49 @@
+.activeBlock {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.activeBlock_title {
+    width: 100%;
+    border: none;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.activeBlock_title:focus-visible {
+    outline-color: #6d63ff;
+}
+
+.activeBlock_text {
+    padding: 8px;
+    width: 100%;
+}
+
+.saveSuccess {
+    text-align: center;
+    color: #0cce6b;
+}
+
+.text {
+    display: flex;
+    text-align: center;
+    width: max-content;
+    height: 500px;
+    margin: auto;
+    align-items: center;
+    color: #222222;
+    opacity: 0.5;
+}
+
+@media (max-width: 780px) {
+    .activeBlock {
+        padding: 0;
+        gap: 3vw;
+        height: max-content;
+    }
+}

@@ -1,4 +1,4 @@
-.button {
+.task {
     width: 100%;
     margin-bottom: 12px;
     font-size: 14px;
@@ -17,11 +17,11 @@
     text-align: left;
 }
 
-.button:hover {
+.task:hover {
     background: #cccccc4d;
 }
 
-.button.active {
+.task.active {
     background: #6d63ff;
     color: #fff;
 }
@@ -32,33 +32,15 @@
     gap: 5px;
 }
 
-.button.active .edit_icons {
-    display: block;
-}
-
 .edit_icons {
     display: none;
     max-width: 20px;
 }
 
-.button:hover .edit_icons {
+.task.active .edit_icons {
     display: block;
 }
 
-.icons {
-    cursor: pointer;
-    width: 1.5em;
-    height: 1.5em;
-}
-
-.rotated {
-    transform: rotate(90deg);
-}
-
-.item_box {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 12px;
-    font-size: 12px;
+.task:hover .edit_icons {
+    display: block;
 }

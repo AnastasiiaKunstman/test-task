@@ -1,7 +1,7 @@
-export interface TaskType {
+export interface Item {
     id: string;
     title: string;
     text: string;
     isChecked: boolean;
-    subTasks: TaskType[];
+    subTasks: string[];
 }

@@ -1,8 +1,9 @@
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import { FC } from 'react';
+import Header from './components/UI/Header/Header';
 import Widget from './components/Widget/Widget';
+import Footer from './components/UI/Footer/Footer';
 
-const App = () => {
+const App: FC = () => {
   return (
     <>
       <Header />
@@ -12,4 +13,4 @@ const App = () => {
   )
 };
 
-export default App
+export default App;
