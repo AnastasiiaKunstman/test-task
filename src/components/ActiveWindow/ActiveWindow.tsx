@@ -30,7 +30,7 @@ const ActiveWindow: FC = observer(() => {
     setNewTitle(event.target.value);
   };
 
-  const handleEditItemTitle = () => {
+  const handleSave = () => {
     if (store.selectedItem) {
 
       const newSubTasks: string[] = [];
@@ -82,7 +82,7 @@ const ActiveWindow: FC = observer(() => {
               ))}
             </ul>
           </div>
-          <Button onClick={handleEditItemTitle} buttonTxt={'Сохранить'} />
+          <Button onClick={handleSave} buttonTxt={'Сохранить'} />
           {saveSuccess && (
             <div className={styles.saveSuccess}>
               Изменения успешно сохранены!

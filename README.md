@@ -3,6 +3,9 @@
 
 ## [Задание](https://docs.google.com/document/d/18lUZ7ZvLRLsOXwCWCZB0DmFZ4Jb6OpwP/edit?usp=sharing&ouid=111233543190189046642&rtpof=true&sd=true)
 
+## Стек:
+TypeScript + React + MobX + Vite
+
 ## Инструкция по сборке
 
 ✅ Клонировать ветку "main" на локальный компьютер
